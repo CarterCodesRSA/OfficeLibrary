@@ -45,10 +45,10 @@ class Students extends Component {
 
 									<td className="align-middle">
 										<Link
-											to={`/students/${student.id}`}
-											className="btn btn-primary"
+											to={`/student/${student.id}`}
+											className="btn btn-primary btn-sm"
 										>
-											Details
+											Profile Details
 										</Link>
 									</td>
 								</tr>
