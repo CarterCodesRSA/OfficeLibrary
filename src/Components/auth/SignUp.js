@@ -63,14 +63,6 @@ class SignUp extends Component {
 				}
 			})
 		}
-		//	this.resetError()
-		// const { email, password } = this.state
-
-		// console.log('Password was confirmed', this.state)
-		// firebaseApp
-		// 	.auth()
-		// 	.createUserWithEmailAndPassword(email, password)
-		// 	.catch(error => this.setState({ error }))
 	}
 
 	render() {

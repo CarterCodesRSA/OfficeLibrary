@@ -18,12 +18,14 @@ class Students extends Component {
 							<h1>Registered Students</h1>
 						</div>
 						<div className="col-md-2 ml-auto">
-							<button className="btn btn-success ml-auto btn-sm align-middle">
-								<Link to="/registerStudent">Register new student </Link>
+							<button className="btn btn-warning ml-auto btn-sm align-middle">
+								<Link to="/registerStudent" className="text-light">
+									Register new student{' '}
+								</Link>
 							</button>
 						</div>
 					</div>
-					<table className="table table-striped table-sm">
+					<table className="table table-striped ">
 						<thead className="thead-inverse">
 							<tr>
 								<th>Name</th>

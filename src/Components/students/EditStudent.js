@@ -8,6 +8,38 @@ import PropTypes from 'prop-types'
 import Spinner from '../layout/Spinner'
 
 class EditStudent extends Component {
+	constructor(props) {
+		super(props)
+		//create refs
+		this.firstNameInput = React.createRef()
+		this.lastNameInput = React.createRef()
+		this.phoneInput = React.createRef()
+		this.AdminRightsInput = React.createRef()
+	}
+
+	submitChanges = e => {
+		e.preventDefault()
+		const { student, firestore, history } = this.props
+
+		//Construct updated student
+
+		const updatedStudent = {
+			firstName: this.firstNameInput.current.value,
+			lastName: this.lastNameInput.current.value,
+			phone: this.phoneInput.current.value,
+			isAdmin: this.AdminRightsInput.current.value,
+			email: student.email,
+			uid: student.uid
+		}
+
+		console.log('Student: ', student)
+
+		console.log('updatedStudent: ', updatedStudent)
+
+		firestore
+			.update({ collection: 'students', doc: student.id }, updatedStudent)
+			.then(history.push('/'))
+	}
 	render() {
 		const { student } = this.props
 		console.log(student)
@@ -36,15 +68,73 @@ class EditStudent extends Component {
 								</div>
 							</h3>
 							<div className="card-body">
-								<ul className="list-group">
-									<li className="list-group-item">Email: {student.email}</li>
-									<li className="list-group-item">
-										Phone Number: {student.phone}
-									</li>
-									<li className="list-group-item">
-										Admin rights: {student.isAdmin}
-									</li>
-								</ul>
+								<form onSubmit={e => this.submitChanges(e)}>
+									<ul className="list-group">
+										<li className="list-group-item">
+											<label className="header" htmlFor="editEmail">
+												Email
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="editEmail"
+												disabled
+												value={student.email}
+											/>
+										</li>
+										<li className="list-group-item">
+											<label className="header" htmlFor="EditFirstName">
+												First Name
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="EditFistName"
+												ref={this.firstNameInput}
+												defaultValue={student.firstName}
+											/>
+										</li>
+										<li className="list-group-item">
+											<label className="header" htmlFor="EditlastName">
+												Last Name
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="EditLastName"
+												ref={this.lastNameInput}
+												defaultValue={student.lastName}
+											/>
+										</li>
+										<li className="list-group-item">
+											<label className="header" htmlFor="EditPhone">
+												Phone
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="EditFistName"
+												ref={this.phoneInput}
+												defaultValue={student.phone}
+											/>
+										</li>
+										<li className="list-group-item">
+											<label className="header" htmlFor="EditAdminRights">
+												Admin Rights
+											</label>
+											<input
+												type="text"
+												className="form-control"
+												id="EditAdminRights"
+												ref={this.AdminRightsInput}
+												defaultValue={student.isAdmin}
+											/>
+										</li>
+									</ul>
+									<button className="btn btn-success btn-block" type="submit">
+										Update Student Details
+									</button>
+								</form>
 							</div>
 						</div>
 					</div>
