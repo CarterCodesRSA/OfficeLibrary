@@ -10,6 +10,8 @@ import Spinner from '../layout/Spinner'
 class Students extends Component {
 	render() {
 		const { students } = this.props
+		console.log('CURRENT LOGGED IN STUDENTS', students)
+
 		if (students) {
 			return (
 				<div>

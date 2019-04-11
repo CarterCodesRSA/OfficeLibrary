@@ -25,14 +25,6 @@ class SignUp extends Component {
 		}
 	}
 
-	// resetError() {
-	// 	this.setState({
-	// 		error: {
-	// 			message: ''
-	// 		}
-	// 	})
-	// }
-
 	async signUp(e) {
 		e.preventDefault()
 
