@@ -24,18 +24,27 @@ class AppNavbar extends Component {
 		}
 	}
 
-	onSignOutClick = () => {}
+	onSignOutClick = e => {
+		e.preventDefault()
+
+		const { firebase, history } = this.props
+		firebase.logout()
+		history.push('/')
+	}
 
 	render() {
 		const { isAuthenticated } = this.state
 		const { auth } = this.props
+		console.log('auth: ', auth)
 		return (
 			<nav className="navbar navbar-expand-md mb-3 py-0 bg-light">
 				<div className="container">
 					<Link to="/" className="navbar-brand">
 						Geotechnical Library
 					</Link>
-					<li className="nav-item">Welcome {auth.email}</li>
+					{isAuthenticated ? (
+						<li className="nav-item">Welcome {auth.email}</li>
+					) : null}
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -48,16 +57,19 @@ class AppNavbar extends Component {
 					</button>
 					<div className="collapse navbar-collapse" id="navbarMain">
 						<ul className="navbar-nav ml-auto">
-							<li className="nav-item" onClick={this.onSignOutClick}>
-								<Link to="/login" className="nav-link">
-									Login
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link to="/signin" className="nav-link">
-									Sign In
-								</Link>
-							</li>
+							{isAuthenticated ? (
+								<li className="nav-item" onClick={this.onSignOutClick}>
+									<Link to="/" className="nav-link">
+										Log Out
+									</Link>
+								</li>
+							) : (
+								<li className="nav-item">
+									<Link to="/login" className="nav-link">
+										Log In
+									</Link>
+								</li>
+							)}
 						</ul>
 					</div>
 				</div>

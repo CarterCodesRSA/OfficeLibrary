@@ -10,15 +10,21 @@ class Login extends Component {
 		password: ''
 	}
 
-	onSubmit = e => {
+	onSubmit = async e => {
 		e.preventDefault()
 
-		const { firebase } = this.props
+		const { firebase, history } = this.props
 		const { email, password } = this.state
-		firebase.login({
-			email,
-			password
-		})
+
+		try {
+			await firebase.login({
+				email,
+				password
+			})
+			history.push('/')
+		} catch (error) {
+			console.log('ERROR : ', error)
+		}
 	}
 
 	onChange = e => {

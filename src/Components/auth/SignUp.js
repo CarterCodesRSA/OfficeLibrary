@@ -32,13 +32,11 @@ class SignUp extends Component {
 
 		const { firestore } = this.props
 		if (password === passwordConfirm && password !== '') {
-			console.log('Passwords Matched')
-			console.log('FIRESTORE', firestore)
 			try {
 				const user = await firebaseApp
 					.auth()
 					.createUserWithEmailAndPassword(newStudent.email, password)
-				console.log('THIS IS THE USER', user)
+
 				await firestore
 					.add(
 						{ collection: 'students' },
