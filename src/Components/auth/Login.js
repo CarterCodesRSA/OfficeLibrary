@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 // import { compose } from 'redux'
 // import { connect } from 'react-redux'
 import { firebaseConnect } from 'react-redux-firebase'
+import { Link } from 'react-router-dom'
+
 import PropTypes from 'prop-types'
 
 class Login extends Component {
@@ -68,6 +70,9 @@ class Login extends Component {
 								</div>
 								<input type="submit" className="btn btn-primary btn-block" />
 							</form>
+							<Link to="/registerStudent" className="navbar-brand">
+								Not a user? Sign up here
+							</Link>
 						</div>
 					</div>
 				</div>

@@ -9,7 +9,6 @@ import SignUp from './Components/auth/SignUp'
 import StudentProfile from './Components/students/StudentProfile'
 import EditStudent from './Components/students/EditStudent'
 import Login from './Components/auth/Login'
-import { UserIsAuthenticated, UserIsNotAuthenticated } from './helpers/auth'
 
 class App extends Component {
 	render() {

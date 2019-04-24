@@ -5,7 +5,7 @@ import Students from '../students/Students'
 export default function Dashboard() {
 	return (
 		<div className="container">
-			<Students />
+			<Catalog />
 		</div>
 	)
 }

@@ -25,11 +25,10 @@ class AppNavbar extends Component {
 	}
 
 	onSignOutClick = e => {
-		e.preventDefault()
+		// e.preventDefault()
 
-		const { firebase, history } = this.props
+		const { firebase } = this.props
 		firebase.logout()
-		history.push('/')
 	}
 
 	render() {

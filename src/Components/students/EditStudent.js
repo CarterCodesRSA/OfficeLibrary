@@ -19,7 +19,7 @@ class EditStudent extends Component {
 
 	submitChanges = e => {
 		e.preventDefault()
-		const { student, firestore, history } = this.props
+		const { student, firestore } = this.props
 
 		//Construct updated student
 
@@ -36,9 +36,11 @@ class EditStudent extends Component {
 
 		console.log('updatedStudent: ', updatedStudent)
 
-		firestore
-			.update({ collection: 'students', doc: student.id }, updatedStudent)
-			.then(history.push('/'))
+		firestore.update(
+			{ collection: 'students', doc: student.id },
+			updatedStudent
+		)
+		// .then(history.push('/'))
 	}
 	render() {
 		const { student } = this.props

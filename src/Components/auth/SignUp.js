@@ -186,7 +186,7 @@ class SignUp extends Component {
 						</form>
 
 						<div className="alight-right mt-2">
-							<Link to={'/signin'}>Already a user? Sign in here</Link>
+							<Link to={'/login'}>Already a user? Login here</Link>
 						</div>
 					</div>
 				</div>
