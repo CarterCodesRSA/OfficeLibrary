@@ -2,6 +2,8 @@
 
 A library app that utilizes firebase to store both the registered users and book catalog
 
+<img src='images/library.JPG'>
+
 ## Frameworks
 
 - React-Redux-Firebase
