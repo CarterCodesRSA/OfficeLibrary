@@ -23,7 +23,7 @@ class Login extends Component {
 				email,
 				password
 			})
-			history.push('/')
+			history.push('/home')
 		} catch (error) {
 			console.log('ERROR : ', error)
 		}

@@ -8,6 +8,7 @@ import Spinner from '../layout/Spinner'
 class Catalog extends Component {
 	render() {
 		const { catalog } = this.props
+		console.log('catalog: ', catalog)
 		console.log('CATALOG', catalog)
 		if (catalog) {
 			return (
